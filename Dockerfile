@@ -1,4 +1,6 @@
-FROM ubuntu:20.04
+# 21.04 seems to be the oldest that supports python 3.9.0
+# Steam advices developers to use the LTS version, currently at 26.04
+FROM ubuntu:26.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,13 +12,16 @@ RUN apt-get update && apt-get install -y \
     make \
     python3 \
     python3-pip \
+    scons \
     git \
     pkg-config \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Install SCons
-RUN pip3 install scons
+# apparently, this is how its done on older ubuntu's
+# the latest installs scons via apt-get
+#RUN pip3 install scons
 
 # Set working directory
 WORKDIR /project
