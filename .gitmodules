@@ -1,0 +1,3 @@
+[submodule "gdtoml"]
+	path = gdtoml
+	url = git@github.com:rubarb-games/gdtoml.git
